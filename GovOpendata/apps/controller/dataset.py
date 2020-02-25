@@ -6,18 +6,19 @@ from flask_restful import Resource
 dataSetBp = Blueprint('dataSet', __name__)
 
 
-class DatasetController(Resource):
+class DatasetQueryController(Resource):
     def get(self):
         """
-        查询
+        点击省份查询数据信息
         :return:
         """
-        pageIndex = request.args.get('pageIndex', None)
-        pageSize = request.args.get('pageSize', None)
-        gov_id = request.args.get('gov_id', None)
-        data = getDatasetList(gov_id=gov_id, pageIndex=pageIndex, pageSize=pageSize)
+        pageIndex = int(request.args.get('pageIndex'))
+        pageSize = int(request.args.get('pageSize'))
+        gov_id = request.args.get('gov_id')
+        data = getDatasetQueryList(gov_id=gov_id, pageIndex=pageIndex, pageSize=pageSize)
         return {'code': 200, 'data': data}
-
+            
+            
     def post(self):
         """
         新增
@@ -32,6 +33,42 @@ class DatasetController(Resource):
         """
         pass
 
+    def delete(self, sid):
+        """
+        删除
+        :param todo_id:
+        :return:
+        """
+        pass
+
+
+class DatasetSearchController(Resource):
+    def get(self):
+        """
+        搜索关键词获取数据信息
+        :return:
+        """
+        pageIndex = int(request.args.get('pageIndex'))
+        pageSize = int(request.args.get('pageSize'))
+        keyWord = request.args.get('keyWord')
+
+        data = getDatasetSearchList(keyWord=keyWord, pageIndex=pageIndex, pageSize=pageSize)
+        return {'code': 200, 'data': data}
+    
+    def post(self):
+        """
+        新增
+        :return:
+        """
+        pass
+    
+    def put(self, sid):
+        """
+        更新
+        :return:
+        """
+        pass
+    
     def delete(self, sid):
         """
         删除
