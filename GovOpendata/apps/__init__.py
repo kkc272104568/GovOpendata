@@ -67,6 +67,9 @@ app.register_blueprint(governmentBp)
 from .controller.dataset import dataSetBp
 app.register_blueprint(dataSetBp)
 
+from .controller.user import userInfo
+app.register_blueprint(userInfo)
+
 def init_database():
     db.init_app(app)
     db.create_all()
