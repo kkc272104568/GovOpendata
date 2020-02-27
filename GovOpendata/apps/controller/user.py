@@ -35,6 +35,7 @@ class UserRegister(Resource):
 		user_info['phone_number'] = request.args.get('phone_number', None)
 		user_info['email'] = request.args.get('email', None)
 		user_info['career'] = request.args.get('career', None)
+		user_info['id_card'] = request.args.get('id_card', None)
 		
 		data = userRegister(user_info=user_info)
 		

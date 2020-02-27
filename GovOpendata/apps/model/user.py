@@ -16,8 +16,7 @@ class User(Base):
     real_name = db.Column(db.String(255), comment="真实姓名")
     phone_number = db.Column(db.String(255), comment="手机号码")
     email = db.Column(db.String(255), comment="电子邮箱")
+    id_card = db.Column(db.String(255), comment="身份证号码")
     career = db.Column(db.String(255), comment="职业")
     
-    
-
     

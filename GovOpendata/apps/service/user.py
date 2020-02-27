@@ -28,7 +28,8 @@ def userRegister(user_info =None):
 		                real_name=user_info['real_name'],
 		                phone_number=user_info['phone_number'],
 		                email=user_info['email'],
-		                career=user_info['career'])
+		                career=user_info['career'],
+		                id_card=user_info['id_card'])
 		db.session.add(new_user)
 		db.session.commit()
 		
